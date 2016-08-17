@@ -8,7 +8,6 @@ Modified authentication methods for LibCrowds.
 
 import os
 import json
-import default_settings
 from flask import current_app as app
 from flask.ext.plugins import Plugin
 
@@ -22,4 +21,13 @@ class LibCrowdsAuth(Plugin):
 
     def setup(self):
         """Setup the plugin."""
-        self.load_config()
+        from pybossa.auth import result
+        result.ResultAuth._update = _update_result
+
+
+def _update_result(self, user, result):
+    """Allow project owner or admin to update results."""
+    if user.is_anonymous():
+        return False
+    project = self._get_project(result, result.project_id)
+    return (project.owner_id == user.id or user.admin)

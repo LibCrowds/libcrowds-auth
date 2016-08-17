@@ -7,6 +7,7 @@ import libcrowds_auth as plugin
 # Use the PyBossa test suite
 sys.path.append(os.path.abspath("./pybossa/test"))
 
+
 def setUpPackage():
     """Setup the plugin."""
     from default import flask_app
