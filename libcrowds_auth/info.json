@@ -1,0 +1,9 @@
+{
+    "identifier": "libcrowds_auth",
+    "name": "libcrowds-auth",
+    "author": "Alexander Mendes",
+    "website": "https://github.com/LibCrowds/libcrowds-auth",
+    "license": "BSD",
+    "description": "Modified authentication methods for LibCrowds.",
+    "version": "0.0.1"
+}
